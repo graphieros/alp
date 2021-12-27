@@ -26,9 +26,19 @@ export const store = createStore<State>({
         fr: "Développeur Front-end",
         en: "Front-end developer",
       },
-      stack: {
-        fr: "Stack technique",
-        en: "Tech stack",
+      buttons: {
+        stack: {
+          fr: "Stack technique",
+          en: "Tech stack",
+        },
+        experience: {
+          fr: "Experience",
+          en: "Experience",
+        },
+        projects: {
+          fr: "Projets",
+          en: "Projects",
+        },
       },
     },
   },

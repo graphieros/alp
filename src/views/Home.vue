@@ -30,7 +30,7 @@ const textContent = computed(() => {
       </w-flex>
     </w-flex>
 
-    <w-flex class="xs12 md4 justify-center title-font">
+    <w-flex wrap class="xs12 md4 justify-center title-font">
       <HomeMenu />
     </w-flex>
   </w-flex>

@@ -17,15 +17,42 @@ function test() {
 </script>
 
 <template>
-  <Button
-    round
-    outline
-    xl
-    shadow
-    color="white"
-    :content="textContent.stack[language.abreviation]"
-    :action="test"
-  />
+  <w-flex class="xs12 justify-center">
+    <Button
+      round
+      outline
+      xl
+      shadow
+      color="white"
+      :content="textContent.buttons.projects[language.abreviation]"
+      :action="test"
+      class="my4"
+    />
+  </w-flex>
+  <w-flex class="xs12 justify-center">
+    <Button
+      round
+      outline
+      xl
+      shadow
+      color="white"
+      :content="textContent.buttons.experience[language.abreviation]"
+      :action="test"
+      class="my4"
+    />
+  </w-flex>
+  <w-flex class="xs12 justify-center">
+    <Button
+      round
+      outline
+      xl
+      shadow
+      color="white"
+      :content="textContent.buttons.stack[language.abreviation]"
+      :action="test"
+      class="my4"
+    />
+  </w-flex>
 </template>
 
 <style lang="scss" scoped></style>
