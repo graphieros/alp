@@ -27,6 +27,7 @@ function test() {
       :content="textContent.buttons.projects[language.abreviation]"
       :action="test"
       class="my4"
+      ico="mdi mdi-star-cog"
     />
   </w-flex>
   <w-flex class="xs12 justify-center">
@@ -39,6 +40,7 @@ function test() {
       :content="textContent.buttons.experience[language.abreviation]"
       :action="test"
       class="my4"
+      ico="mdi mdi-head-cog"
     />
   </w-flex>
   <w-flex class="xs12 justify-center">
@@ -51,6 +53,7 @@ function test() {
       :content="textContent.buttons.stack[language.abreviation]"
       :action="test"
       class="my4"
+      ico="mdi mdi-heart-cog"
     />
   </w-flex>
 </template>

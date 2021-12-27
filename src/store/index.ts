@@ -6,6 +6,7 @@ import { UnknownObj } from "../types";
 export const key: InjectionKey<Store<State>> = Symbol();
 
 export interface State {
+  isChart: boolean;
   language: UnknownObj;
   isFrench: boolean;
   textContent: UnknownObj;
@@ -13,6 +14,7 @@ export interface State {
 
 export const store = createStore<State>({
   state: {
+    isChart: true,
     language: {
       abreviation: "fr",
       options: {
@@ -50,6 +52,13 @@ export const store = createStore<State>({
       } else {
         state.language.abreviation = "fr";
         state.isFrench = true;
+      }
+    },
+    TOGGLE_CHART(state) {
+      if (state.isChart) {
+        state.isChart = false;
+      } else {
+        state.isChart = true;
       }
     },
   },

@@ -1,9 +1,10 @@
 <script setup lang="ts">
 import { computed } from "vue";
 import { store } from "../store/index";
-import { UnknownObj } from "../types";
 import Language from "../components/atoms/Language.vue";
+import ToggleChart from "../components/atoms/ToggleChart.vue";
 import HomeMenu from "../components/molecules/HomeMenu.vue";
+import Chart from "../components/atoms/Chart.vue";
 
 const language = computed(() => {
   return store.state.language;
@@ -16,6 +17,7 @@ const textContent = computed(() => {
 
 <template>
   <w-flex wrap class="white home-wrapper align-center">
+    <Chart fixed />
     <w-flex class="xs12 md4" wrap>
       <w-flex
         class="xs12 my2 justify-center name-wrapper title-font font-shade"
@@ -27,6 +29,9 @@ const textContent = computed(() => {
       </w-flex>
       <w-flex class="xs12 justify-center align-center my4">
         <Language color="brown-light3" shadow />
+      </w-flex>
+      <w-flex class="xs12 justify-center align-center my4">
+        <ToggleChart color="brown-light3" shadow />
       </w-flex>
     </w-flex>
 
