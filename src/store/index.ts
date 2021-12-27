@@ -8,6 +8,7 @@ export const key: InjectionKey<Store<State>> = Symbol();
 export interface State {
   language: UnknownObj;
   isFrench: boolean;
+  textContent: UnknownObj;
 }
 
 export const store = createStore<State>({
@@ -20,6 +21,16 @@ export const store = createStore<State>({
       },
     },
     isFrench: true,
+    textContent: {
+      nameSubtitle: {
+        fr: "Développeur Front-end",
+        en: "Front-end developer",
+      },
+      stack: {
+        fr: "Stack technique",
+        en: "Tech stack",
+      },
+    },
   },
   mutations: {
     TOGGLE_LANGUAGE(state) {

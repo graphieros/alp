@@ -3,23 +3,23 @@ import { computed } from "vue";
 import { store } from "../store/index";
 import { UnknownObj } from "../types";
 import Language from "../components/atoms/Language.vue";
+import HomeMenu from "../components/molecules/HomeMenu.vue";
 
 const language = computed(() => {
   return store.state.language;
 });
 
-const textContent: UnknownObj = {
-  nameSubtitle: {
-    fr: "Développeur Front-end",
-    en: "Front-end developer",
-  },
-};
+const textContent = computed(() => {
+  return store.state.textContent;
+});
 </script>
 
 <template>
   <w-flex wrap class="white home-wrapper align-center">
     <w-flex class="xs12 md4" wrap>
-      <w-flex class="xs12 justify-center name-wrapper title-font font-shade">
+      <w-flex
+        class="xs12 my2 justify-center name-wrapper title-font font-shade"
+      >
         <h1>Alec Lloyd Probert</h1>
       </w-flex>
       <w-flex class="xs12 justify-center name-wrapper title-font font-shade">
@@ -30,7 +30,9 @@ const textContent: UnknownObj = {
       </w-flex>
     </w-flex>
 
-    <w-flex class="xs12 md4 justify-center"> </w-flex>
+    <w-flex class="xs12 md4 justify-center title-font">
+      <HomeMenu />
+    </w-flex>
   </w-flex>
 </template>
 

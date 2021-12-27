@@ -32,11 +32,15 @@ const isFrench = computed({
 
 <template>
   <span
-    ><h6>{{ language.options.en }}</h6></span
+    ><h6 :class="!isFrench ? 'selected' : ''">
+      {{ language.options.en }}
+    </h6></span
   >
   <w-switch :color="color" v-model="isFrench" class="mx2 toggle"></w-switch>
   <span
-    ><h6>{{ language.options.fr }}</h6></span
+    ><h6 :class="isFrench ? 'selected' : ''">
+      {{ language.options.fr }}
+    </h6></span
   >
 </template>
 
@@ -44,5 +48,8 @@ const isFrench = computed({
 .toggle {
   border-radius: 100%;
   box-shadow: v-bind(isShadow);
+}
+.selected {
+  text-decoration: underline;
 }
 </style>
