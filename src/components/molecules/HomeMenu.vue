@@ -11,8 +11,9 @@ const language = computed(() => {
   return store.state.language;
 });
 
-function test() {
-  console.log("TEST");
+function showDrawer(drawer: string) {
+  const payload = { name: drawer, isOpen: true };
+  store.commit("TOGGLE_DRAWER", payload);
 }
 </script>
 
@@ -25,7 +26,7 @@ function test() {
       shadow
       color="white"
       :content="textContent.buttons.projects[language.abreviation]"
-      :action="test"
+      :action="() => showDrawer('Projects')"
       class="my4"
       ico="mdi mdi-star-cog"
     />
@@ -38,7 +39,7 @@ function test() {
       shadow
       color="white"
       :content="textContent.buttons.experience[language.abreviation]"
-      :action="test"
+      :action="() => showDrawer('Experience')"
       class="my4"
       ico="mdi mdi-head-cog"
     />
@@ -51,7 +52,7 @@ function test() {
       shadow
       color="white"
       :content="textContent.buttons.stack[language.abreviation]"
-      :action="test"
+      :action="() => showDrawer('Stack')"
       class="my4"
       ico="mdi mdi-heart-cog"
     />

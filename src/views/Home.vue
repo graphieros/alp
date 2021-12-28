@@ -1,10 +1,11 @@
 <script setup lang="ts">
-import { computed } from "vue";
+import { ref, computed } from "vue";
 import { store } from "../store/index";
 import Language from "../components/atoms/Language.vue";
 import ToggleChart from "../components/atoms/ToggleChart.vue";
 import HomeMenu from "../components/molecules/HomeMenu.vue";
 import Chart from "../components/atoms/Chart.vue";
+import Experience from "../components/drawers/Experience.vue";
 
 const language = computed(() => {
   return store.state.language;
@@ -12,6 +13,18 @@ const language = computed(() => {
 
 const textContent = computed(() => {
   return store.state.textContent;
+});
+
+const showExperience = computed({
+  get() {
+    return store.state.showExperience;
+  },
+  set() {
+    store.commit("TOGGLE_DRAWER", {
+      name: "Experience",
+      isOpen: false,
+    });
+  },
 });
 </script>
 
@@ -39,6 +52,11 @@ const textContent = computed(() => {
       <HomeMenu />
     </w-flex>
   </w-flex>
+
+  <!-- EXPERIENCE -->
+  <w-drawer left v-model="showExperience">
+    <Experience />
+  </w-drawer>
 </template>
 
 <style lang="scss" scoped>

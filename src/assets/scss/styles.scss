@@ -4,6 +4,12 @@ body {
   background-size: cover;
 }
 
+.rust-background {
+  background-image: url("../bg.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 html {
   height: 100%;
 }
@@ -14,4 +20,9 @@ html {
 
 .font-shade {
   text-shadow: 0 5px 6px black;
+}
+
+.lloyd-tartan {
+  background-repeat: repeat;
+  background-image: url("../lloyd_tartan.png");
 }

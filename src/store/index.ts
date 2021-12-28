@@ -6,14 +6,17 @@ import { UnknownObj } from "../types";
 export const key: InjectionKey<Store<State>> = Symbol();
 
 export interface State {
+  [key: string]: string | number | any;
   isChart: boolean;
   language: UnknownObj;
   isFrench: boolean;
   textContent: UnknownObj;
+  showExperience: boolean;
 }
 
 export const store = createStore<State>({
   state: {
+    showExperience: false,
     isChart: true,
     language: {
       abreviation: "fr",
@@ -60,6 +63,10 @@ export const store = createStore<State>({
       } else {
         state.isChart = true;
       }
+    },
+    TOGGLE_DRAWER(state, payload: UnknownObj) {
+      const { name, isOpen } = payload;
+      state[`show${name}`] = isOpen;
     },
   },
 });
