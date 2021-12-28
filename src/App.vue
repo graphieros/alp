@@ -1,4 +1,29 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { store } from "./store/index";
+import { nextTick, ref } from "vue";
+
+let debounceTimer = ref();
+
+function onResize(): void {
+  clearTimeout(debounceTimer.value);
+  debounceTimer.value = setTimeout(() => {
+    const windowWidth = window.innerWidth;
+    store.commit("UPDATE_FIELD", {
+      field: "isMobile",
+      val: windowWidth <= 600,
+    });
+    store.commit("UPDATE_FIELD", {
+      field: "isTablet",
+      val: windowWidth <= 1200 && windowWidth > 600,
+    });
+  }, 250);
+}
+
+window.addEventListener("resize", onResize);
+nextTick(() => {
+  onResize();
+});
+</script>
 
 <template>
   <w-app id="app">

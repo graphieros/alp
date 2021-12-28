@@ -12,10 +12,14 @@ export interface State {
   isFrench: boolean;
   textContent: UnknownObj;
   showExperience: boolean;
+  isMobile: boolean;
+  isTablet: boolean;
 }
 
 export const store = createStore<State>({
   state: {
+    isMobile: false,
+    isTablet: false,
     showExperience: false,
     isChart: true,
     language: {
@@ -37,12 +41,62 @@ export const store = createStore<State>({
           en: "Tech stack",
         },
         experience: {
-          fr: "Experience",
+          fr: "Expérience",
           en: "Experience",
         },
         projects: {
           fr: "Projets",
           en: "Projects",
+        },
+      },
+      drawerExperience: {
+        title: {
+          fr: "Expérience",
+          en: "Experience",
+        },
+        intro: {
+          fr: "Développeur front-end autodidacte avec une expérience préalable comme data-analyst dans le domaine des cosmétiques.",
+          en: "Self-taught front-end developer with previous experience as data-analyst in the field of skincare & cosmetics.",
+        },
+        painting: {
+          fr: "Entre 1988 et 2020, artiste peintre et créateur de l'idéolangue graphieros, dont voici un tableau:",
+          en: "Between 1988 and 2020, self-taught oil painter and creator of the graphieros conlang. Here is an example of a painting:",
+        },
+        button: {
+          fr: "Découvrir le graphieros",
+          en: "Discover graphieros",
+        },
+        timeline: {
+          fr: [
+            {
+              title: "Depuis 2018",
+              content: "Développeur front-end",
+            },
+            { title: "2014 - 2021", content: "Data-analyst" },
+            {
+              title: "2009 - 2014",
+              content: "Adjoint Opérations",
+            },
+            {
+              title: "2006 - 2009",
+              content: "Hôte d'accueil & conseiller de vente",
+            },
+          ],
+          en: [
+            {
+              title: "Since 2018",
+              content: "Front-end developer",
+            },
+            { title: "2014 - 2021", content: "Data-analyst" },
+            {
+              title: "2009 - 2014",
+              content: "Deputy operations officer",
+            },
+            {
+              title: "2006 - 2009",
+              content: "Spa receptionist",
+            },
+          ],
         },
       },
     },
@@ -67,6 +121,9 @@ export const store = createStore<State>({
     TOGGLE_DRAWER(state, payload: UnknownObj) {
       const { name, isOpen } = payload;
       state[`show${name}`] = isOpen;
+    },
+    UPDATE_FIELD(state, { field, val }: UnknownObj): void {
+      if (field) state[field.toString()] = val;
     },
   },
 });

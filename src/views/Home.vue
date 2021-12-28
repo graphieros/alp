@@ -26,6 +26,14 @@ const showExperience = computed({
     });
   },
 });
+
+const isMobile = computed(() => {
+  return store.state.isMobile;
+});
+
+const isTablet = computed(() => {
+  return store.state.isTablet;
+});
 </script>
 
 <template>
@@ -35,10 +43,16 @@ const showExperience = computed({
       <w-flex
         class="xs12 my2 justify-center name-wrapper title-font font-shade"
       >
-        <h1>Alec Lloyd Probert</h1>
+        <w-flex class="align-center justify-center">
+          <!-- <h4 class="mt-10">Alec</h4> -->
+          <h1>Alec Lloyd Probert</h1>
+          <!-- <h4 class="mt10">Probert</h4> -->
+        </w-flex>
       </w-flex>
       <w-flex class="xs12 justify-center name-wrapper title-font font-shade">
-        <h3>{{ textContent.nameSubtitle[language.abreviation] }}</h3>
+        <h3 class="blue-light3">
+          {{ textContent.nameSubtitle[language.abreviation] }}
+        </h3>
       </w-flex>
       <w-flex class="xs12 justify-center align-center my4">
         <Language color="brown-light3" shadow />
@@ -54,7 +68,11 @@ const showExperience = computed({
   </w-flex>
 
   <!-- EXPERIENCE -->
-  <w-drawer left v-model="showExperience" width="61.8%">
+  <w-drawer
+    left
+    v-model="showExperience"
+    :width="isMobile || isTablet ? '100%' : '61.8%'"
+  >
     <Experience />
   </w-drawer>
 </template>

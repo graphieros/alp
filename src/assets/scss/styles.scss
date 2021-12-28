@@ -13,6 +13,10 @@ html {
   font-family: "Nixie One", cursive;
 }
 
+.big-title {
+  font-size: 4em;
+}
+
 .font-shade {
   text-shadow: 0 5px 6px black;
 }
@@ -24,13 +28,57 @@ html {
 .drawer-background {
   border: none;
   position: relative;
+  height: 100vh;
   width: 100%;
+  overflow-y: scroll;
+  &::-webkit-scrollbar {
+    // background-image: url("../lloyd_tartan.png");
+    // background-repeat: repeat;
+    background: transparent;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: radial-gradient(white, rgb(202, 168, 146));
+    border-radius: 10px;
+    box-shadow: 0px 5px 10px black;
+  }
 }
 .side-decoration-bar {
-  height: 100vh;
+  display: block;
   opacity: 0.5;
   position: absolute;
   right: 0;
   top: 0;
   width: 50px;
+  height: 100vh;
+}
+
+.drawer-content {
+  width: 100% !important;
+  padding-right: 50px;
+  padding-left: 50px;
+  p {
+    text-align: left;
+    width: 60ch;
+  }
+}
+
+.w-timeline-item__title {
+  font-family: "Nixie One", cursive;
+  text-align: left;
+  font-size: 2em;
+}
+
+.w-timeline-item {
+  color: white !important;
+  text-align: left;
+}
+
+@media screen and (max-width: 600px) {
+  .big-title {
+    font-size: 2em;
+  }
+  .drawer-content {
+    padding-left: 5px;
+    padding-right: 5px;
+  }
 }
