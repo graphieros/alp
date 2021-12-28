@@ -32,15 +32,15 @@ const isFrench = computed({
 
 <template>
   <span
-    ><h6 :class="!isFrench ? 'selected' : ''">
+    ><h4 :class="!isFrench ? 'selected title-font' : 'title-font'">
       {{ language.options.en }}
-    </h6></span
+    </h4></span
   >
   <w-switch :color="color" v-model="isFrench" class="mx2 toggle"></w-switch>
   <span
-    ><h6 :class="isFrench ? 'selected' : ''">
+    ><h4 :class="isFrench ? 'selected title-font' : 'title-font'">
       {{ language.options.fr }}
-    </h6></span
+    </h4></span
   >
 </template>
 

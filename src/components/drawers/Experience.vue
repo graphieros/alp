@@ -7,8 +7,11 @@ function close() {
 </script>
 
 <template>
-  TEST
-  <w-button @click="close()">CLOSE</w-button>
+  <w-card class="rust-background drawer-background">
+    <div class="lloyd-tartan side-decoration-bar"></div>
+    TEST
+    <w-button @click="close()">CLOSE</w-button>
+  </w-card>
 </template>
 
 <style lang="scss" scoped></style>

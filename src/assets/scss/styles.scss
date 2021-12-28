@@ -1,9 +1,4 @@
-body {
-  background-image: url("../bg.png");
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
+body,
 .rust-background {
   background-image: url("../bg.png");
   background-repeat: no-repeat;
@@ -23,6 +18,19 @@ html {
 }
 
 .lloyd-tartan {
-  background-repeat: repeat;
   background-image: url("../lloyd_tartan.png");
+  background-repeat: repeat;
+}
+.drawer-background {
+  border: none;
+  position: relative;
+  width: 100%;
+}
+.side-decoration-bar {
+  height: 100vh;
+  opacity: 0.5;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 50px;
 }

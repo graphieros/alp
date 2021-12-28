@@ -54,7 +54,7 @@ const showExperience = computed({
   </w-flex>
 
   <!-- EXPERIENCE -->
-  <w-drawer left v-model="showExperience">
+  <w-drawer left v-model="showExperience" width="61.8%">
     <Experience />
   </w-drawer>
 </template>
