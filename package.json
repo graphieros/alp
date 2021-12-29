@@ -8,7 +8,9 @@
     "serve": "vite preview"
   },
   "dependencies": {
+    "@firebase/app-compat": "^0.1.12",
     "@mdi/font": "^6.3.95",
+    "firebase": "^9.6.1",
     "vue": "^3.2.16",
     "vue-router": "^4.0.12",
     "vuex": "^4.0.2",

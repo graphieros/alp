@@ -60,6 +60,18 @@ const isMobile = computed(() => {
 const isTablet = computed(() => {
   return store.state.isTablet;
 });
+
+const form = ref({
+  name: "",
+  email: "",
+});
+
+const onSubmit = async () => {
+  store.dispatch("CREATE_USER", { ...form.value }).then(() => {
+    form.value.name = "";
+    form.value.email = "";
+  });
+};
 </script>
 
 <template>
@@ -117,6 +129,12 @@ const isTablet = computed(() => {
   >
     <Projects />
   </w-drawer>
+
+  <form @submit.prevent="onSubmit">
+    <input v-model="form.name" />
+    <input v-model="form.email" type="email" />
+    <button type="submit">SUBMIT</button>
+  </form>
 </template>
 
 <style lang="scss" scoped>

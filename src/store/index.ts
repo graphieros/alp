@@ -2,6 +2,10 @@ import { InjectionKey } from "vue";
 import { createStore, useStore as baseUseStore, Store } from "vuex";
 // import functions from "../functions";
 import { UnknownObj } from "../types";
+import firebaseApp from "../firebase";
+import { collection, doc, getFirestore, setDoc } from "firebase/firestore/lite";
+
+const db = getFirestore(firebaseApp);
 
 export const key: InjectionKey<Store<State>> = Symbol();
 
@@ -214,6 +218,14 @@ export const store = createStore<State>({
     },
     UPDATE_FIELD(state, { field, val }: UnknownObj): void {
       if (field) state[field.toString()] = val;
+    },
+  },
+  actions: {
+    CREATE_USER({ commit }: UnknownObj, user: UnknownObj) {
+      return new Promise((resolve, reject) => {
+        const users = collection(db, "users");
+        setDoc(doc(users), user);
+      });
     },
   },
 });
