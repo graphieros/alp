@@ -59,8 +59,8 @@ export const store = createStore<State>({
           en: "Tech stack",
         },
         intro: {
-          fr: "Connaissances approfondies en Vanilla JS, pour une utilisation optimale des principaux frameworks avec TypeScript, en particulier VueJs. Forte sensibilité data-analyse et visualisation data, et excellentes compétences en édition d'images.",
-          en: "In-depth Vanilla JS knowledge, for an optimal use of main frameworks with TypeScript ,especially VueJs. Strong data-analysis, data visualization, and excellent image editing skills.",
+          fr: "Connaissances approfondies en Vanilla JS, pour une utilisation optimale des principaux frameworks avec TypeScript, en particulier VueJs. Forte sensibilité data-analyse et visualisation data, et excellentes compétences en édition d'images, et inline SVG.",
+          en: "In-depth Vanilla JS knowledge, for an optimal use of main frameworks with TypeScript, especially VueJs. Strong data-analysis, data visualization, excellent image editing and inline SVG skills.",
         },
         fundamentals: {
           fr: "Fondamentaux",

@@ -125,6 +125,18 @@ const techStacks = {
               </template>
               <h4 class="title-font">Sass, scss</h4>
             </w-tooltip>
+
+            <w-tooltip bg-color="white" color="black">
+              <template #activator="{ on }">
+                <img
+                  v-on="on"
+                  class="mx2 drop-shadow"
+                  src="../../assets/logos/github.png"
+                  alt="Github"
+                />
+              </template>
+              <h4 class="title-font">Github</h4>
+            </w-tooltip>
           </div>
         </w-card>
       </w-flex>
