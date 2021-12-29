@@ -26,8 +26,10 @@ const isChart = computed({
 </script>
 
 <template>
-  <w-checkbox v-model="isChart" color="brown-light3" class="font-shade"
-    ><h4 class="title-font">{{ isChart ? "play" : "pause" }}</h4></w-checkbox
+  <w-checkbox v-model="isChart" color="blue-light2" class="font-shade"
+    ><h4 class="title-font">
+      {{ isChart ? "playing" : "paused" }}
+    </h4></w-checkbox
   >
 </template>
 

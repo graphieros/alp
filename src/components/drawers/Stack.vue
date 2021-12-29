@@ -128,12 +128,13 @@ const techStacks = {
           </div>
         </w-card>
       </w-flex>
-      <div class="grid xs12 md6">
+
+      <w-flex class="xs12 md6">
         <w-card class="tech-stack-card">
           <h1 class="white title-font font-shade">
             {{ textContent.frameworks[language] }}
           </h1>
-          <w-flex class="my5 align-center justify-center">
+          <div class="grid my5 align-center justify-center">
             <w-tooltip bg-color="vue--bg" color="black">
               <template #activator="{ on }">
                 <img
@@ -181,9 +182,9 @@ const techStacks = {
               </template>
               <h4 class="title-font">Svelte 3 + Sveltekit</h4>
             </w-tooltip>
-          </w-flex>
+          </div>
         </w-card>
-      </div>
+      </w-flex>
       <w-flex class="xs12 md6">
         <w-card class="tech-stack-card">
           <h1 class="white title-font font-shade">
@@ -259,7 +260,7 @@ const techStacks = {
 <style lang="scss" scoped>
 .tech-stack-card,
 .tech-stack-card-transparent {
-  width: 100%;
+  width: 100% !important;
   margin: 20px;
 }
 
@@ -271,5 +272,14 @@ const techStacks = {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 10px;
+}
+
+@media screen and (max-width: 600px) {
+  .tech-stack-card {
+    img {
+      width: 40px;
+      height: 40px;
+    }
+  }
 }
 </style>
