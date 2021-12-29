@@ -12,6 +12,8 @@ export interface State {
   isFrench: boolean;
   textContent: UnknownObj;
   showExperience: boolean;
+  showStack: boolean;
+  showProjects: boolean;
   isMobile: boolean;
   isTablet: boolean;
 }
@@ -21,6 +23,8 @@ export const store = createStore<State>({
     isMobile: false,
     isTablet: false,
     showExperience: false,
+    showStack: false,
+    showProjects: false,
     isChart: true,
     language: {
       abreviation: "fr",
@@ -47,6 +51,28 @@ export const store = createStore<State>({
         projects: {
           fr: "Projets",
           en: "Projects",
+        },
+      },
+      drawerStack: {
+        title: {
+          fr: "Stack technique",
+          en: "Tech stack",
+        },
+        intro: {
+          fr: "Connaissances approfondies en Vanilla JS, pour une utilisation optimale des principaux frameworks avec TypeScript, en particulier VueJs. Forte sensibilité data-analyse et visualisation data, et excellentes compétences en édition d'images.",
+          en: "In-depth Vanilla JS knowledge, for an optimal use of main frameworks with TypeScript ,especially VueJs. Strong data-analysis, data visualization, and excellent image editing skills.",
+        },
+        fundamentals: {
+          fr: "Fondamentaux",
+          en: "Fundamentals",
+        },
+        frameworks: {
+          fr: "Frameworks",
+          en: "Frameworks",
+        },
+        other: {
+          fr: "Autres",
+          en: "Other",
         },
       },
       drawerExperience: {

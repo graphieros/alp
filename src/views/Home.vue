@@ -6,6 +6,7 @@ import ToggleChart from "../components/atoms/ToggleChart.vue";
 import HomeMenu from "../components/molecules/HomeMenu.vue";
 import Chart from "../components/atoms/Chart.vue";
 import Experience from "../components/drawers/Experience.vue";
+import Stack from "../components/drawers/Stack.vue";
 
 const language = computed(() => {
   return store.state.language;
@@ -22,6 +23,18 @@ const showExperience = computed({
   set() {
     store.commit("TOGGLE_DRAWER", {
       name: "Experience",
+      isOpen: false,
+    });
+  },
+});
+
+const showStack = computed({
+  get() {
+    return store.state.showStack;
+  },
+  set() {
+    store.commit("TOGGLE_DRAWER", {
+      name: "Stack",
       isOpen: false,
     });
   },
@@ -67,13 +80,21 @@ const isTablet = computed(() => {
     </w-flex>
   </w-flex>
 
-  <!-- EXPERIENCE -->
+  <!-- DRAWERS -->
   <w-drawer
     left
     v-model="showExperience"
     :width="isMobile || isTablet ? '100%' : '61.8%'"
   >
     <Experience />
+  </w-drawer>
+
+  <w-drawer
+    left
+    v-model="showStack"
+    :width="isMobile || isTablet ? '100%' : '61.8%'"
+  >
+    <Stack />
   </w-drawer>
 </template>
 

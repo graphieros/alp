@@ -21,6 +21,14 @@ html {
   text-shadow: 0 5px 6px black;
 }
 
+.box-shadow {
+  box-shadow: 0 5px 10px -5px black;
+}
+
+.drop-shadow {
+  filter: drop-shadow(0px 5px 10px black);
+}
+
 .lloyd-tartan {
   background-image: url("../lloyd_tartan.png");
   background-repeat: repeat;
@@ -71,6 +79,19 @@ html {
 .w-timeline-item {
   color: white !important;
   text-align: left;
+}
+
+.vue {
+  color: #4fc08d;
+}
+.vue--bg {
+  background-color: #4fc08d;
+  &::after {
+    color: #4fc08d;
+  }
+  &::before {
+    color: #4fc08d;
+  }
 }
 
 @media screen and (max-width: 600px) {

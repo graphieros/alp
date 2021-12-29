@@ -13,3 +13,8 @@ export type ErrorMessage = {
 export interface OtherErrorMessage {
   [key: string]: ErrorType;
 }
+
+export interface TechStack {
+  name: string;
+  logo: string;
+}

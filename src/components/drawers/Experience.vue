@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { computed } from "vue";
-import router from "../../router";
 import { store } from "../../store";
 import Button from "../atoms/Button.vue";
 
@@ -15,8 +14,6 @@ const textContent = computed(() => {
 const language = computed(() => {
   return store.state.language.abreviation;
 });
-
-function goToGraphieros() {}
 </script>
 
 <template>
