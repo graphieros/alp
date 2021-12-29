@@ -53,6 +53,12 @@ export const store = createStore<State>({
           en: "Projects",
         },
       },
+      drawerProjects: {
+        title: {
+          fr: "Projets",
+          en: "Projects",
+        },
+      },
       drawerStack: {
         title: {
           fr: "Stack technique",

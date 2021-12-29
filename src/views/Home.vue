@@ -7,6 +7,7 @@ import HomeMenu from "../components/molecules/HomeMenu.vue";
 import Chart from "../components/atoms/Chart.vue";
 import Experience from "../components/drawers/Experience.vue";
 import Stack from "../components/drawers/Stack.vue";
+import Projects from "../components/drawers/Projects.vue";
 
 const language = computed(() => {
   return store.state.language;
@@ -35,6 +36,18 @@ const showStack = computed({
   set() {
     store.commit("TOGGLE_DRAWER", {
       name: "Stack",
+      isOpen: false,
+    });
+  },
+});
+
+const showProjects = computed({
+  get() {
+    return store.state.showProjects;
+  },
+  set() {
+    store.commit("TOGGLE_DRAWER", {
+      name: "Projects",
       isOpen: false,
     });
   },
@@ -95,6 +108,14 @@ const isTablet = computed(() => {
     :width="isMobile || isTablet ? '100%' : '61.8%'"
   >
     <Stack />
+  </w-drawer>
+
+  <w-drawer
+    left
+    v-model="showProjects"
+    :width="isMobile || isTablet ? '100%' : '61.8%'"
+  >
+    <Projects />
   </w-drawer>
 </template>
 
