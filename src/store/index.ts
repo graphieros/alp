@@ -75,6 +75,10 @@ export const store = createStore<State>({
               fr: "Vous devez compléter les champs pour envoyer la demande de contact.",
               en: "You must fill-in all the fields to send your contact request.",
             },
+            phonyEmail: {
+              fr: "Vous devez utiliser une adresse e-mail non jetable.",
+              en: "You must use a non-disposable e-mail.",
+            },
           },
           validators: {
             required: {

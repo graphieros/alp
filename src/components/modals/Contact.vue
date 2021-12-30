@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref, computed } from "vue";
+import functions from "../../functions";
 import { store } from "../../store";
 import Button from "../atoms/Button.vue";
 
@@ -51,20 +52,28 @@ function submitContactRequest() {
   if (!isFormValid.value || !isFormFilled) {
     errorMessage.value = textContent.value.form.errors.empty[language.value];
   } else {
-    store
-      .dispatch("SEND_CONTACT_REQUEST", { ...contactInfo.value })
-      .then(() => {
-        successMessage.value = textContent.value.form.success[language.value];
+    if (!isAdmin.value) {
+      if (functions.isNotDisposableEmail(contactInfo.value.email)) {
+        store
+          .dispatch("SEND_CONTACT_REQUEST", { ...contactInfo.value })
+          .then(() => {
+            successMessage.value =
+              textContent.value.form.success[language.value];
 
-        setTimeout(() => {
-          emit("close");
-          contactInfo.value = {
-            name: "",
-            email: "",
-            message: "",
-          };
-        }, 1500);
-      });
+            setTimeout(() => {
+              emit("close");
+              contactInfo.value = {
+                name: "",
+                email: "",
+                message: "",
+              };
+            }, 1500);
+          });
+      } else {
+        errorMessage.value =
+          textContent.value.form.errors.phonyEmail[language.value];
+      }
+    }
   }
 }
 </script>

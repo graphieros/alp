@@ -590,6 +590,7 @@ export default {
       "zippymail.info",
       "zoemail.net",
       "zomg.info",
+      "test.com",
     ];
 
     let nonDisposableEmail = true;
