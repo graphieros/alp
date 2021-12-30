@@ -1,7 +1,7 @@
 import { InjectionKey } from "vue";
 import { createStore, useStore as baseUseStore, Store } from "vuex";
 // import functions from "../functions";
-import { UnknownObj } from "../types";
+import { Contact, Language, TranslationContent, UnknownObj } from "../types";
 import firebaseApp from "../firebase";
 import { collection, doc, getFirestore, setDoc } from "firebase/firestore/lite";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
@@ -14,16 +14,16 @@ export const key: InjectionKey<Store<State>> = Symbol();
 export interface State {
   [key: string]: string | number | any;
   isChart: boolean;
-  language: UnknownObj;
+  language: Language;
   isFrench: boolean;
-  textContent: UnknownObj;
+  textContent: TranslationContent;
   showExperience: boolean;
   showStack: boolean;
   showProjects: boolean;
   isMobile: boolean;
   isTablet: boolean;
   isLoggedIn: boolean;
-  contactRequests: UnknownObj;
+  contactRequests: Contact[];
 }
 
 export const store = createStore<State>({
@@ -280,7 +280,7 @@ export const store = createStore<State>({
     },
   },
   mutations: {
-    TOGGLE_LANGUAGE(state) {
+    TOGGLE_LANGUAGE(state): void {
       if (state.isFrench) {
         state.language.abreviation = "en";
         state.isFrench = false;
@@ -289,14 +289,14 @@ export const store = createStore<State>({
         state.isFrench = true;
       }
     },
-    TOGGLE_CHART(state) {
+    TOGGLE_CHART(state): void {
       if (state.isChart) {
         state.isChart = false;
       } else {
         state.isChart = true;
       }
     },
-    TOGGLE_DRAWER(state, payload: UnknownObj) {
+    TOGGLE_DRAWER(state, payload: UnknownObj): void {
       const { name, isOpen } = payload;
       state[`show${name}`] = isOpen;
     },
@@ -305,19 +305,21 @@ export const store = createStore<State>({
     },
   },
   actions: {
-    CREATE_USER({ commit }: UnknownObj, user: UnknownObj) {
+    CREATE_USER({ commit }: UnknownObj, user: UnknownObj): Promise<UnknownObj> {
       return new Promise((resolve, reject) => {
         const users = collection(db, "users");
         setDoc(doc(users), user);
       });
     },
-    SEND_CONTACT_REQUEST({ commit }: UnknownObj, payload: UnknownObj) {
+    SEND_CONTACT_REQUEST(
+      { commit }: UnknownObj,
+      payload: UnknownObj
+    ): Promise<Contact | boolean> {
       const id = uuidv4();
       payload.id = id;
       payload.date = new Date().toLocaleDateString();
 
       return new Promise((resolve, reject) => {
-        const contacts = collection(db, "contacts");
         setDoc(doc(db, "contacts", payload.id), { ...payload })
           .then(() => {
             if (commit) {
@@ -330,7 +332,10 @@ export const store = createStore<State>({
           });
       });
     },
-    LOG_IN({ commit }: UnknownObj, payload: UnknownObj) {
+    LOG_IN(
+      { commit }: UnknownObj,
+      payload: UnknownObj
+    ): Promise<UnknownObj | boolean> {
       const { email, pwd } = payload;
       const auth = getAuth();
       return new Promise((resolve, reject) => {

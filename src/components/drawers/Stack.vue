@@ -1,8 +1,6 @@
 <script setup lang="ts">
 import { computed } from "vue";
 import { store } from "../../store";
-import { TechStack } from "../../types";
-import Button from "../atoms/Button.vue";
 
 function close() {
   store.commit("TOGGLE_DRAWER", { name: "Stack", isOpen: false });
@@ -15,15 +13,6 @@ const textContent = computed(() => {
 const language = computed(() => {
   return store.state.language.abreviation;
 });
-
-const techStacks = {
-  fundamentals: [
-    { logo: "../../assets/logos/js.png", name: "JavaScript" },
-    { logo: "../../assets/logos/html.png", name: "HTML" },
-    { logo: "../../assets/logos/css.png", name: "CSS" },
-    { logo: "../../assets/logos/sass.png", name: "Sass" },
-  ],
-};
 </script>
 
 <template>

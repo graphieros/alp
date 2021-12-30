@@ -2,6 +2,7 @@
 import { ref, computed } from "vue";
 import functions from "../../functions";
 import { store } from "../../store";
+import { Contact } from "../../types";
 import Button from "../atoms/Button.vue";
 
 const textContent = computed(() => {
@@ -38,13 +39,14 @@ let isAdmin = ref(false);
 let isButtonVisible = ref(true);
 let errorMessage = ref("");
 let successMessage = ref("");
-let contactInfo = ref({
+
+let contactInfo = ref<Contact>({
   name: "",
   email: "",
   message: "",
 });
 
-function submitContactRequest() {
+function submitContactRequest(): void {
   errorMessage.value = "";
   const isFormFilled =
     contactInfo.value.name &&
