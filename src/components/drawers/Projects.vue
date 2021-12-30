@@ -24,6 +24,7 @@ const language = computed(() => {
       right
       xl
       color="white"
+      bg-color="error"
       outline
       icon="mdi mdi-close"
       @click="close()"

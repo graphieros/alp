@@ -34,6 +34,7 @@ const techStacks = {
       right
       xl
       color="white"
+      bg-color="error"
       outline
       icon="mdi mdi-close"
       @click="close()"
