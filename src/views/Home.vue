@@ -8,6 +8,7 @@ import Chart from "../components/atoms/Chart.vue";
 import Experience from "../components/drawers/Experience.vue";
 import Stack from "../components/drawers/Stack.vue";
 import Projects from "../components/drawers/Projects.vue";
+import Contact from "../components/modals/Contact.vue";
 
 const language = computed(() => {
   return store.state.language;
@@ -61,6 +62,8 @@ const isTablet = computed(() => {
   return store.state.isTablet;
 });
 
+let isContactOpen = ref(false);
+
 const form = ref({
   name: "",
   email: "",
@@ -101,9 +104,25 @@ const onSubmit = async () => {
     </w-flex>
 
     <w-flex wrap class="xs12 md4 justify-center title-font">
+      <w-button
+        outline
+        color="white"
+        class="contact-button mb4"
+        @click="isContactOpen = !isContactOpen"
+        ><div class="contact-button-bg lloyd-tartan"></div>
+        <div class="contact-button-content">
+          <w-icon xl class="mt-5">mdi mdi-email-edit-outline</w-icon>
+          <h4 class="mt">CONTACT</h4>
+        </div>
+      </w-button>
       <HomeMenu />
     </w-flex>
   </w-flex>
+
+  <!-- MODALS -->
+  <w-dialog width="800" v-model="isContactOpen">
+    <Contact @close="isContactOpen = !isContactOpen" />
+  </w-dialog>
 
   <!-- DRAWERS -->
   <w-drawer
@@ -140,5 +159,24 @@ const onSubmit = async () => {
 <style lang="scss" scoped>
 .home-wrapper {
   height: 100vh;
+}
+.contact-button {
+  box-shadow: 0px 10px 10px rgb(50, 30, 30);
+  height: 100px !important;
+  width: 100px;
+  border-radius: 50%;
+  display: block;
+  position: relative;
+
+  .contact-button-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    opacity: 0.3;
+    z-index: -1;
+  }
 }
 </style>

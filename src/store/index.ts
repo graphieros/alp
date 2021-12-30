@@ -40,6 +40,62 @@ export const store = createStore<State>({
     },
     isFrench: true,
     textContent: {
+      contact: {
+        intro: {
+          fr: "Indiquez ici vos coordonnées et votre message:",
+          en: "Please leave your contact details and your message to get in touch:",
+        },
+        title: {
+          fr: "Demande de contact",
+          en: "Contact request",
+        },
+        form: {
+          name: {
+            fr: "Votre nom",
+            en: "Your name",
+          },
+          email: {
+            fr: "Votre e-mail",
+            en: "Your e-mail",
+          },
+          message: {
+            fr: "Votre message",
+            en: "Your message",
+          },
+          button: {
+            fr: "ENVOYER",
+            en: "SEND",
+          },
+          success: {
+            fr: "Message envoyé. Merci !",
+            en: "Message sent. Thank you !",
+          },
+          errors: {
+            empty: {
+              fr: "Vous devez compléter les champs pour envoyer la demande de contact.",
+              en: "You must fill-in all the fields to send your contact request.",
+            },
+          },
+          validators: {
+            required: {
+              fr: "Champ obligatoire",
+              en: "Required",
+            },
+            name: {
+              fr: "Max 30 caractères",
+              en: "Max 30 characters",
+            },
+            message: {
+              fr: "Max 512 caractères",
+              en: "Max 512 characters",
+            },
+            email: {
+              fr: "E-mail invalide.",
+              en: "Invalid e-mail.",
+            },
+          },
+        },
+      },
       nameSubtitle: {
         fr: "Développeur Front-end",
         en: "Front-end developer",
@@ -70,8 +126,8 @@ export const store = createStore<State>({
               en: "Original implementation of the classic 'agile poker' to make estimating sessions of user stories a playful and productive gathering, especially for remote agile teams.",
             },
             stack: {
-              fr: "PWA codée en Vue2 + Vuetify + Firebase",
-              en: "PWA written in Vue2 + Vuetify + Firebase",
+              fr: "PWA codée avec TypeScript, Vue2, Vuetify, Firebase",
+              en: "PWA written in TypeScript, Vue2, Vuetify, Firebase",
             },
             cta: {
               fr: "Accéder à l'application",
@@ -84,8 +140,8 @@ export const store = createStore<State>({
               en: "Presentation of the 'graphieros' conlang: origins, how the languag works, glyphs SVG editor and other resources.",
             },
             stack: {
-              fr: "Application codée en React avec vanilla JS",
-              en: "Application written in React with Vanilla JS",
+              fr: "Application codée en Vanilla JS et React",
+              en: "Application written in Vanilla JS and React",
             },
             cta: {
               fr: "Accéder à l'application",
@@ -98,8 +154,8 @@ export const store = createStore<State>({
               en: "Presentation ",
             },
             stack: {
-              fr: "Application codée avec Vue3 et Vanilla JS",
-              en: "Application written in Vue3 with Vanilla JS",
+              fr: "Application codée avec Vanilla JS et Vue3",
+              en: "Application written in Vanilla JS and Vue3",
             },
             cta: {
               fr: "Accéder à l'application",
@@ -112,12 +168,30 @@ export const store = createStore<State>({
               en: "A funny and ironic trading idle game the player can choose to leave to play on itself, or frenetically try to earn as much cash as possible. Buy and sell shares of the Universal Toilet Paper Index, tamper with the market, avoid the SEC, buy and sell real estate, create a company and bring it to the moon.",
             },
             stack: {
-              fr: "Application codée avec Vue3, TypeScript et WaveUI",
-              en: "Application written in Vue3, TypeScript and WaveUI",
+              fr: "Application codée avec TypeScript, Vue3, WaveUI",
+              en: "Application written in TypeScript, Vue3, WaveUI",
             },
             cta: {
               fr: "Accéder au jeu",
               en: "Check out the game",
+            },
+          },
+          thisSite: {
+            name: {
+              fr: "Ce site",
+              en: "This website",
+            },
+            intro: {
+              fr: "Mieux qu'un CV statique, ce site tente de montrer d'une façon sobre l'étendue de mes compétences actuelles en matière de développement front-end.",
+              en: "Better than a static CV, this site attemps to show in a sober fashion the extent of my current front-end skills.",
+            },
+            stack: {
+              fr: "Application codée avec TypeScript, Vue3, WaveUI, Firebase",
+              en: "Application written in TypeScript, Vue3, WaveUI, Firebase",
+            },
+            cta: {
+              fr: "Fermer",
+              en: "Close",
             },
           },
         },

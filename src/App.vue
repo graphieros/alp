@@ -56,7 +56,7 @@ nextTick(() => {
 }
 @media screen and (max-width: 600px) {
   .tartan-bg {
-    width: 50px;
+    width: 20px;
   }
 }
 </style>

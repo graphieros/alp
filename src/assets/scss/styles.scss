@@ -111,3 +111,23 @@ html {
 .bold {
   font-weight: bold;
 }
+
+.washed-white {
+  background: rgba(255, 255, 255, 0.568);
+}
+
+.my-input,
+.my-textarea {
+  border-radius: 2px;
+}
+
+.my-input {
+  font-size: 1.3em;
+  padding: 10px;
+  padding-top: 20px;
+}
+
+.my-textarea {
+  font-size: 1.3em;
+  padding: 20px;
+}

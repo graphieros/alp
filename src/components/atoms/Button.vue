@@ -13,6 +13,7 @@ const props = defineProps<{
   round?: boolean;
   outline?: boolean;
   ico?: string;
+  disabled?: boolean;
 }>();
 </script>
 
@@ -29,6 +30,7 @@ const props = defineProps<{
     :color="color"
     @click="action()"
     :class="shadow ? 'shadow' : ''"
+    :disabled="disabled"
   >
     <w-icon v-if="ico" class="mr2">{{ ico }}</w-icon>
     <h4>{{ content }}</h4>
