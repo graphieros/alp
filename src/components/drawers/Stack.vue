@@ -52,13 +52,13 @@ const techStacks = {
 
     <w-flex wrap class="tech-stack-wrapper">
       <w-flex class="xs12 md6">
-        <v-card class="tech-stack-card-transparent">
+        <w-card class="tech-stack-card-transparent">
           <w-flex class="justify-center align-center" style="height: 100%">
             <p align="left" class="white">
               {{ textContent.intro[language] }}
             </p>
           </w-flex>
-        </v-card>
+        </w-card>
       </w-flex>
       <w-flex class="xs12 md6">
         <w-card class="tech-stack-card">

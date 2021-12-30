@@ -3,6 +3,7 @@ import { getFirestore, collection, query, getDocs } from "firebase/firestore";
 import { deleteDoc, doc } from "firebase/firestore";
 import { ref, computed, watch } from "vue";
 import firebaseApp from "../firebase";
+import router from "../router";
 import { store } from "../store";
 import { UnknownObj } from "../types";
 
@@ -18,6 +19,10 @@ const credentials = ref({
   email: "",
   pwd: "",
 });
+
+function goToHome() {
+  router.push("/");
+}
 
 function submitLogin() {
   if (!isAdmin.value) {
@@ -41,6 +46,8 @@ async function fetchContactRequests() {
     });
   }
 }
+
+let isDelete = ref(false);
 
 async function dump(contact: UnknownObj) {
   await deleteDoc(doc(db, "contacts", contact.id));
@@ -85,7 +92,9 @@ watch(
     ></w-checkbox>
 
     <w-flex class="justify-center align-center mt5">
-      <w-button xl @click="submitLogin">SUBMIT</w-button>
+      <w-button class="box-shadow" xl round @click="submitLogin">
+        <h4 class="title-font">SUBMIT</h4>
+      </w-button>
     </w-flex>
   </w-form>
 
@@ -99,7 +108,8 @@ watch(
       :key="`contact_${i}`"
       class="xs12 md6 washed-white contact-card box-shadow"
     >
-      <h1 align="left" class="title-font">
+      <div class="lloyd-tartan contact-card-top"></div>
+      <h1 align="left" class="title-font mt8">
         Le {{ contact.date }} de {{ contact.name }}
       </h1>
       <h3 align="left" class="title-font">{{ contact.email }}</h3>
@@ -111,6 +121,19 @@ watch(
         </w-button>
       </w-flex>
     </w-card>
+  </w-flex>
+
+  <w-flex class="justify-center align-center mt10">
+    <w-button
+      class="box-shadow"
+      @click="goToHome"
+      xl
+      round
+      outline
+      color="white"
+    >
+      <h4 class="title-font">HOME</h4>
+    </w-button>
   </w-flex>
 </template>
 
@@ -128,5 +151,14 @@ watch(
   width: 100%;
   max-width: 600px;
   height: 100%;
+}
+
+.contact-card-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 30px;
+  width: 100%;
+  opacity: 0.5;
 }
 </style>

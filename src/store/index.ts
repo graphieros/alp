@@ -112,7 +112,7 @@ export const store = createStore<State>({
       buttons: {
         stack: {
           fr: "Stack technique",
-          en: "Tech stack",
+          en: "Technical stack",
         },
         experience: {
           fr: "Expérience",
