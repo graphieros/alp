@@ -127,7 +127,7 @@ const language = computed(() => {
           <w-flex class="align-end justify-end">
             <a href="https://agilepkr.graphieros.com" target="_blank">
               <Button
-                class="title-font"
+                class="title-font mt5"
                 xl
                 round
                 shadow
@@ -215,7 +215,7 @@ const language = computed(() => {
         <w-flex class="align-end justify-end">
           <a href="https://graphieros.com" target="_blank">
             <Button
-              class="title-font"
+              class="title-font mt5"
               xl
               round
               shadow
@@ -303,7 +303,7 @@ const language = computed(() => {
         <w-flex class="align-end justify-end">
           <a href="https://en.graphieros.com" target="_blank">
             <Button
-              class="title-font"
+              class="title-font mt5"
               xl
               round
               shadow
@@ -391,7 +391,7 @@ const language = computed(() => {
         <w-flex class="align-end justify-end">
           <a href="https://toilet-mogul.graphieros.com" target="_blank">
             <Button
-              class="title-font"
+              class="title-font mt5"
               xl
               round
               shadow
@@ -488,7 +488,7 @@ const language = computed(() => {
 
           <w-flex class="align-end justify-end">
             <Button
-              class="title-font"
+              class="title-font mt5"
               xl
               round
               shadow

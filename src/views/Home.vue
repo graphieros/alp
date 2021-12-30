@@ -148,12 +148,6 @@ const onSubmit = async () => {
   >
     <Projects />
   </w-drawer>
-
-  <form @submit.prevent="onSubmit">
-    <input v-model="form.name" />
-    <input v-model="form.email" type="email" />
-    <button type="submit">SUBMIT</button>
-  </form>
 </template>
 
 <style lang="scss" scoped>

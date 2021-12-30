@@ -49,7 +49,7 @@ nextTick(() => {
   position: fixed;
   right: 0;
   top: 0;
-  height: 100vh;
+  height: 100%;
   width: 100px;
   opacity: 0.5;
   z-index: -1;

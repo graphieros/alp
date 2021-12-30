@@ -75,10 +75,10 @@ const language = computed(() => {
           alt="Tableau, Alec Lloyd Probert, 2020, représentant un oeil."
         />
       </w-flex>
-      <w-flex class="justify-end align-end my5">
+      <w-flex class="justify-end align-end my5 mb12">
         <a href="https://graphieros.com" target="_blank">
           <Button
-            class="title-font"
+            class="title-font mb12"
             xl
             round
             shadow
