@@ -23,10 +23,12 @@ export interface State {
   isMobile: boolean;
   isTablet: boolean;
   isLoggedIn: boolean;
+  contactRequests: UnknownObj;
 }
 
 export const store = createStore<State>({
   state: {
+    contactRequests: [],
     isLoggedIn: false,
     isMobile: false,
     isTablet: false,
@@ -316,7 +318,7 @@ export const store = createStore<State>({
 
       return new Promise((resolve, reject) => {
         const contacts = collection(db, "contacts");
-        setDoc(doc(contacts), payload)
+        setDoc(doc(db, "contacts", payload.id), { ...payload })
           .then(() => {
             if (commit) {
               resolve(true);
