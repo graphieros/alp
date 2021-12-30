@@ -4,6 +4,7 @@ import { createStore, useStore as baseUseStore, Store } from "vuex";
 import { UnknownObj } from "../types";
 import firebaseApp from "../firebase";
 import { collection, doc, getFirestore, setDoc } from "firebase/firestore/lite";
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { v4 as uuidv4 } from "uuid";
 
 const db = getFirestore(firebaseApp);
@@ -21,10 +22,12 @@ export interface State {
   showProjects: boolean;
   isMobile: boolean;
   isTablet: boolean;
+  isLoggedIn: boolean;
 }
 
 export const store = createStore<State>({
   state: {
+    isLoggedIn: false,
     isMobile: false,
     isTablet: false,
     showExperience: false,
@@ -315,6 +318,23 @@ export const store = createStore<State>({
         const contacts = collection(db, "contacts");
         setDoc(doc(contacts), payload)
           .then(() => {
+            if (commit) {
+              resolve(true);
+            }
+          })
+          .catch((err) => {
+            console.error(err.message);
+            reject(err);
+          });
+      });
+    },
+    LOG_IN({ commit }: UnknownObj, payload: UnknownObj) {
+      const { email, pwd } = payload;
+      const auth = getAuth();
+      return new Promise((resolve, reject) => {
+        signInWithEmailAndPassword(auth, email, pwd)
+          .then(() => {
+            store.state.isLoggedIn = true;
             if (commit) {
               resolve(true);
             }
