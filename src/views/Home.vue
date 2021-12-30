@@ -67,7 +67,7 @@ const form = ref({
 });
 
 const onSubmit = async () => {
-  store.dispatch("CREATE_USER", { ...form.value }).then(() => {
+  store.dispatch("SEND_CONTACT_REQUEST", { ...form.value }).then(() => {
     form.value.name = "";
     form.value.email = "";
   });

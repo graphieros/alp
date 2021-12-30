@@ -4,6 +4,7 @@ import { createStore, useStore as baseUseStore, Store } from "vuex";
 import { UnknownObj } from "../types";
 import firebaseApp from "../firebase";
 import { collection, doc, getFirestore, setDoc } from "firebase/firestore/lite";
+import { v4 as uuidv4 } from "uuid";
 
 const db = getFirestore(firebaseApp);
 
@@ -225,6 +226,25 @@ export const store = createStore<State>({
       return new Promise((resolve, reject) => {
         const users = collection(db, "users");
         setDoc(doc(users), user);
+      });
+    },
+    SEND_CONTACT_REQUEST({ commit }: UnknownObj, payload: UnknownObj) {
+      const id = uuidv4();
+      payload.id = id;
+      payload.date = new Date().toLocaleDateString();
+
+      return new Promise((resolve, reject) => {
+        const contacts = collection(db, "contacts");
+        setDoc(doc(contacts), payload)
+          .then(() => {
+            if (commit) {
+              resolve(true);
+            }
+          })
+          .catch((err) => {
+            console.error(err.message);
+            reject(err);
+          });
       });
     },
   },

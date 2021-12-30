@@ -14,7 +14,8 @@
     "vue": "^3.2.16",
     "vue-router": "^4.0.12",
     "vuex": "^4.0.2",
-    "wave-ui": "^2.25.0"
+    "wave-ui": "^2.25.0",
+    "uuid": "^8.3.2"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^1.9.2",

@@ -6,3 +6,4 @@ dist-ssr
 *.txt
 .env.production
 src/firebase/index.ts
+firestore.rules
