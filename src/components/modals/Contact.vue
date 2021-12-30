@@ -35,6 +35,7 @@ const rules = ref({
 
 let isFormValid = ref(false);
 let isAdmin = ref(false);
+let isButtonVisible = ref(true);
 let errorMessage = ref("");
 let successMessage = ref("");
 let contactInfo = ref({
@@ -54,6 +55,7 @@ function submitContactRequest() {
   } else {
     if (!isAdmin.value) {
       if (functions.isNotDisposableEmail(contactInfo.value.email)) {
+        isButtonVisible.value = false;
         store
           .dispatch("SEND_CONTACT_REQUEST", { ...contactInfo.value })
           .then(() => {
@@ -137,6 +139,7 @@ function submitContactRequest() {
 
       <w-flex class="align-end justify-end mt5">
         <Button
+          v-if="isButtonVisible"
           :action="submitContactRequest"
           xl
           round
