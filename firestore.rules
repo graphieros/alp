@@ -8,5 +8,9 @@ service cloud.firestore {
        allow read: if isAuthenticated();
        allow write;
     }
+    match /blog/{blogID} {
+       allow read;
+       allow write:if isAuthenticated();
+    }
 }
 }

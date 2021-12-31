@@ -6,6 +6,7 @@ import firebaseApp from "../firebase";
 import router from "../router";
 import { store } from "../store";
 import { UnknownObj } from "../types";
+import BlogEditor from "../components/molecules/BlogEditor.vue";
 
 const db = getFirestore(firebaseApp);
 
@@ -37,7 +38,6 @@ function submitLogin() {
 let contactRequests = ref([]) as UnknownObj;
 
 async function fetchContactRequests() {
-  let arr = [] as any;
   if (isLoggedIn.value) {
     const q = query(collection(db, "contacts"));
     const querySnapShot = await getDocs(q);
@@ -46,8 +46,6 @@ async function fetchContactRequests() {
     });
   }
 }
-
-let isDelete = ref(false);
 
 async function dump(contact: UnknownObj) {
   await deleteDoc(doc(db, "contacts", contact.id));
@@ -134,6 +132,10 @@ watch(
     >
       <h4 class="title-font">HOME</h4>
     </w-button>
+  </w-flex>
+
+  <w-flex v-if="isLoggedIn" class="justify-center align-center">
+    <BlogEditor />
   </w-flex>
 </template>
 

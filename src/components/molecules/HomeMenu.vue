@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed } from "vue";
+import router from "../../router";
 import { store } from "../../store/index";
 import Button from "../atoms/Button.vue";
 
@@ -15,9 +16,26 @@ function showDrawer(drawer: string) {
   const payload = { name: drawer, isOpen: true };
   store.commit("TOGGLE_DRAWER", payload);
 }
+
+function goToBlog() {
+  router.push("/blog");
+}
 </script>
 
 <template>
+  <w-flex class="xs12 justify-center">
+    <Button
+      round
+      outline
+      xl
+      shadow
+      color="white"
+      :content="textContent.buttons.blog[language.abreviation]"
+      :action="goToBlog"
+      class="my4"
+      ico="mdi mdi-post"
+    />
+  </w-flex>
   <w-flex class="xs12 justify-center">
     <Button
       round

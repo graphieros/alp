@@ -15,33 +15,43 @@ export interface OtherErrorMessage {
 }
 
 export interface TechStack {
-  name: string;
   logo: string;
+  name: string;
 }
 
 export interface Contact {
-  name: string | undefined;
-  email: string | undefined;
-  message: string | undefined;
-  id?: string | undefined;
   date?: string | Date | undefined;
+  email: string | undefined;
+  id?: string | undefined;
+  message: string | undefined;
+  name: string | undefined;
 }
 
 export interface LanguageOption {
-  fr: string;
+  [key: string]: string | number | any;
   en: string;
+  fr: string;
 }
 
 export interface Language {
+  [key: string]: string | number | any;
   abreviation: string;
   options: LanguageOption;
 }
 
 export interface TranslationContent {
-  contact: UnknownObj;
-  nameSubtitle: UnknownObj;
   buttons: UnknownObj;
+  contact: UnknownObj;
+  drawerExperience: UnknownObj;
   drawerProjects: UnknownObj;
   drawerStack: UnknownObj;
-  drawerExperience: UnknownObj;
+  nameSubtitle: UnknownObj;
+}
+
+export interface BlogPost {
+  content: LanguageOption;
+  date: any;
+  icon: string;
+  id: string;
+  title: LanguageOption;
 }

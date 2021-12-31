@@ -1,7 +1,13 @@
 import { InjectionKey } from "vue";
 import { createStore, useStore as baseUseStore, Store } from "vuex";
 // import functions from "../functions";
-import { Contact, Language, TranslationContent, UnknownObj } from "../types";
+import {
+  BlogPost,
+  Contact,
+  Language,
+  TranslationContent,
+  UnknownObj,
+} from "../types";
 import firebaseApp from "../firebase";
 import { collection, doc, getFirestore, setDoc } from "firebase/firestore/lite";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
@@ -24,10 +30,12 @@ export interface State {
   isTablet: boolean;
   isLoggedIn: boolean;
   contactRequests: Contact[];
+  blogPosts: BlogPost[];
 }
 
 export const store = createStore<State>({
   state: {
+    blogPosts: [],
     contactRequests: [],
     isLoggedIn: false,
     isMobile: false,
@@ -110,6 +118,10 @@ export const store = createStore<State>({
         en: "Front-end developer",
       },
       buttons: {
+        blog: {
+          fr: "Blog",
+          en: "Blog",
+        },
         stack: {
           fr: "Stack technique",
           en: "Technical stack",
@@ -323,6 +335,24 @@ export const store = createStore<State>({
       return new Promise((resolve, reject) => {
         const users = collection(db, "users");
         setDoc(doc(users), user);
+      });
+    },
+    POST_BLOG({ commit }: UnknownObj, payload: BlogPost) {
+      const id = uuidv4();
+      payload.id = id;
+      payload.date = new Date().toLocaleDateString();
+
+      return new Promise((resolve, reject) => {
+        setDoc(doc(db, "blog", payload.id), { ...payload })
+          .then(() => {
+            if (commit) {
+              resolve(true);
+            }
+          })
+          .catch((err) => {
+            console.error(err.message);
+            reject(err);
+          });
       });
     },
     SEND_CONTACT_REQUEST(
