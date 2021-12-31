@@ -129,6 +129,20 @@ export const store = createStore<State>({
           en: "Projects",
         },
         projects: {
+          yohann: {
+            intro: {
+              fr: "Site officiel du comédien et metteur en scène Yohann Lavéant.",
+              en: "Official website of the comedian and director Yohann Lavéant.",
+            },
+            stack: {
+              fr: "PWA codée avec TypeScript, Vue2, Vuetify, Firebase",
+              en: "PWA written in TypeScript, Vue2, Vuetify, Firebase",
+            },
+            cta: {
+              fr: "Accéder à l'application",
+              en: "Check out the app",
+            },
+          },
           agilePkr: {
             intro: {
               fr: "Solution ludique d'agile poker pour faire des sessions d'estimations de user-stories un moment agréable et productif, tout spécialement pour les équipes agiles en télétravail.",
