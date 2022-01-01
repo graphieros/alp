@@ -1,17 +1,18 @@
 <script setup lang="ts">
 import { computed } from "vue";
 import { store } from "../../store";
+import { UnknownObj } from "../../types";
 import Button from "../atoms/Button.vue";
 
-function close() {
+function close(): void {
   store.commit("TOGGLE_DRAWER", { name: "Projects", isOpen: false });
 }
 
-const textContent = computed(() => {
+const textContent = computed<UnknownObj>(() => {
   return store.state.textContent.drawerProjects;
 });
 
-const language = computed(() => {
+const language = computed<string>(() => {
   return store.state.language.abreviation;
 });
 </script>
@@ -605,8 +606,8 @@ const language = computed(() => {
 
 <style lang="scss" scoped>
 .projects-card {
-  width: 100%;
   background: rgba(255, 255, 255, 0.205);
+  width: 100%;
 }
 
 .tech-image {

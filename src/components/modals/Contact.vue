@@ -2,14 +2,14 @@
 import { ref, computed } from "vue";
 import functions from "../../functions";
 import { store } from "../../store";
-import { Contact } from "../../types";
+import { Contact, UnknownObj } from "../../types";
 import Button from "../atoms/Button.vue";
 
-const textContent = computed(() => {
+const textContent = computed<UnknownObj>(() => {
   return store.state.textContent.contact;
 });
 
-const language = computed(() => {
+const language = computed<string>(() => {
   return store.state.language.abreviation;
 });
 
@@ -166,12 +166,12 @@ function submitContactRequest(): void {
 
 <style lang="scss" scoped>
 .header-decoration {
+  height: 20px;
+  left: 0;
+  opacity: 0.5;
   position: absolute;
   top: 0;
-  left: 0;
-  height: 20px;
   width: 100%;
-  opacity: 0.5;
 }
 .form-fields {
   gap: 20px;

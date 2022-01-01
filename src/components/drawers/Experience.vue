@@ -1,17 +1,18 @@
 <script setup lang="ts">
 import { computed } from "vue";
 import { store } from "../../store";
+import { UnknownObj } from "../../types";
 import Button from "../atoms/Button.vue";
 
 function close() {
   store.commit("TOGGLE_DRAWER", { name: "Experience", isOpen: false });
 }
 
-const textContent = computed(() => {
+const textContent = computed<UnknownObj>(() => {
   return store.state.textContent.drawerExperience;
 });
 
-const language = computed(() => {
+const language = computed<string>(() => {
   return store.state.language.abreviation;
 });
 </script>
@@ -101,9 +102,9 @@ img.portrait {
 }
 
 img.painting {
-  width: 100%;
   border-radius: 2px;
   box-shadow: 0 10px 20px -5px black;
+  width: 100%;
 }
 
 p {

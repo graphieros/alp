@@ -4,33 +4,33 @@ const props = defineProps<{
   bgColor?: string;
   color?: string;
   content: string;
+  disabled?: boolean;
+  ico?: string;
   lg?: boolean;
   md?: boolean;
+  outline?: boolean;
+  round?: boolean;
   shadow?: boolean;
   sm?: boolean;
   xl?: boolean;
   xs?: boolean;
-  round?: boolean;
-  outline?: boolean;
-  ico?: string;
-  disabled?: boolean;
 }>();
 </script>
 
 <template>
   <w-button
-    :xs="xs"
-    :sm="sm"
-    :md="md"
-    :lg="lg"
-    :xl="xl"
-    :outline="outline"
-    :round="round"
-    :bg-color="bgColor"
-    :color="color"
-    @click="action()"
-    :class="shadow ? 'shadow' : ''"
-    :disabled="disabled"
+    :bg-color="props.bgColor"
+    :class="props.shadow ? 'shadow' : ''"
+    :color="props.color"
+    :disabled="props.disabled"
+    :lg="props.lg"
+    :md="props.md"
+    :outline="props.outline"
+    :round="props.round"
+    :sm="props.sm"
+    :xl="props.xl"
+    :xs="props.xs"
+    @click="props.action()"
   >
     <w-icon v-if="ico" class="mr2">{{ ico }}</w-icon>
     <h4>{{ content }}</h4>

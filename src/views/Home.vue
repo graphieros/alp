@@ -63,18 +63,6 @@ const isTablet = computed(() => {
 });
 
 let isContactOpen = ref(false);
-
-const form = ref({
-  name: "",
-  email: "",
-});
-
-const onSubmit = async () => {
-  store.dispatch("SEND_CONTACT_REQUEST", { ...form.value }).then(() => {
-    form.value.name = "";
-    form.value.email = "";
-  });
-};
 </script>
 
 <template>
@@ -155,21 +143,21 @@ const onSubmit = async () => {
   height: 100vh;
 }
 .contact-button {
-  box-shadow: 0px 10px 10px rgb(50, 30, 30);
-  height: 100px !important;
-  width: 100px;
   border-radius: 50%;
+  box-shadow: 0px 10px 10px rgb(50, 30, 30);
   display: block;
+  height: 100px !important;
   position: relative;
+  width: 100px;
 
   .contact-button-bg {
+    border-radius: 50%;
+    height: 100%;
+    left: 0;
+    opacity: 0.3;
     position: absolute;
     top: 0;
-    left: 0;
     width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    opacity: 0.3;
     z-index: -1;
   }
 }

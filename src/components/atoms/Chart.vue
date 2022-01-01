@@ -2,6 +2,7 @@
 import { ref, computed } from "vue";
 import functions from "../../functions/index";
 import { store } from "../../store";
+import { ChartDataSet, Line, Plot, UnknownObj } from "../../types";
 
 const props = defineProps<{
   fixed: boolean;
@@ -11,66 +12,34 @@ const isChart = computed(() => {
   return store.state.isChart;
 });
 
-interface Plot {
-  x: number;
-  y: number;
-}
-
-interface Line {
-  x1: number;
-  y1: number;
-  x2: number;
-  y2: number;
-}
-
 const time = ref();
 const height = 300;
 const speed = 120;
 
-const dataSets = ref({
-  level0: [] as number[],
-  level1: [] as number[],
-  level2: [] as number[],
+const dataSets = ref<ChartDataSet>({
+  level0: [],
+  level1: [],
+  level2: [],
 });
 
 const slicer = 500;
 
-const plotsLevel0 = computed(() => {
-  return dataSets.value.level0.map((dataValue: number, i: number) => {
-    return {
-      x: i,
-      y: dataValue,
-    } as Plot;
-  }) as Plot[];
-});
-
 const plotsLevel1 = computed(() => {
-  return dataSets.value.level1.map((dataValue: number, i: number) => {
+  return dataSets.value.level1.map((valueY: number, i: number) => {
     return {
       x: i,
-      y: dataValue,
+      y: valueY,
     } as Plot;
   }) as Plot[];
 });
 
 const plotsLevel2 = computed(() => {
-  return dataSets.value.level2.map((dataValue: number, i: number) => {
+  return dataSets.value.level2.map((valueY: number, i: number) => {
     return {
       x: i,
-      y: dataValue,
+      y: valueY,
     } as Plot;
   }) as Plot[];
-});
-
-const linesLevel0 = computed(() => {
-  return plotsLevel0.value.map((plot: Plot, i: number) => {
-    return {
-      x1: plot.x,
-      y1: plot.y,
-      x2: plotsLevel0.value[i + 1]?.x ? plotsLevel0.value[i + 1].x : plot.x,
-      y2: plotsLevel0.value[i + 1]?.y ? plotsLevel0.value[i + 1].y : plot.y,
-    } as Line;
-  }) as Line[];
 });
 
 const linesLevel1 = computed(() => {
@@ -95,11 +64,11 @@ const linesLevel2 = computed(() => {
   }) as Line[];
 });
 
-function crypt(num: number) {
+function crypt(num: number): string {
   return (num >>> 0).toString(2);
 }
 
-function loop() {
+function loop(): void {
   if (isChart.value) {
     const randLevel0 = Math.random() * height;
     dataSets.value.level0.push(randLevel0);
@@ -145,9 +114,6 @@ const isFixed = computed(() => {
 
 <template>
   <svg viewBox="0 0 500 250">
-    <!-- <g v-for="(line0, i) in linesLevel0" :key="`line0_${i}`">
-      <line :x1="line0.x1" :y1="line0.y1" :x2="line0.x2" :y2="line0.y2" />
-    </g> -->
     <g v-for="(line1, i) in linesLevel1" :key="`line1_${i}`">
       <line
         class="average1"
@@ -165,12 +131,6 @@ const isFixed = computed(() => {
         :x2="line2.x2"
         :y2="line2.y2"
       />
-      <!-- <circle
-        r="1"
-        :cx="line2.x1"
-        :cy="line2.y1"
-        fill="rgba(255, 136, 0, 0.501)"
-      /> -->
     </g>
     <circle
       r="2"
@@ -194,12 +154,12 @@ const isFixed = computed(() => {
 
 <style lang="scss" scoped>
 svg {
-  z-index: -1;
+  height: 100%;
+  left: 0;
   position: v-bind(isFixed);
   top: 0;
-  left: 0;
-  height: 100%;
   width: 100%;
+  z-index: -1;
 }
 line {
   stroke-width: 1;

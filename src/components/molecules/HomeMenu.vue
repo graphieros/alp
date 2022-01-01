@@ -2,22 +2,23 @@
 import { computed } from "vue";
 import router from "../../router";
 import { store } from "../../store/index";
+import { Language, TranslationContent } from "../../types";
 import Button from "../atoms/Button.vue";
 
-const textContent = computed(() => {
+const textContent = computed<TranslationContent>(() => {
   return store.state.textContent;
 });
 
-const language = computed(() => {
+const language = computed<Language>(() => {
   return store.state.language;
 });
 
-function showDrawer(drawer: string) {
+function showDrawer(drawer: string): void {
   const payload = { name: drawer, isOpen: true };
   store.commit("TOGGLE_DRAWER", payload);
 }
 
-function goToBlog() {
+function goToBlog(): void {
   router.push("/blog");
 }
 </script>

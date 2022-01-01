@@ -331,13 +331,10 @@ export const store = createStore<State>({
     },
   },
   actions: {
-    CREATE_USER({ commit }: UnknownObj, user: UnknownObj): Promise<UnknownObj> {
-      return new Promise((resolve, reject) => {
-        const users = collection(db, "users");
-        setDoc(doc(users), user);
-      });
-    },
-    POST_BLOG({ commit }: UnknownObj, payload: BlogPost) {
+    POST_BLOG(
+      { commit }: UnknownObj,
+      payload: BlogPost
+    ): Promise<BlogPost | boolean> {
       const id = uuidv4();
       payload.id = id;
       payload.date = new Date().toLocaleDateString();

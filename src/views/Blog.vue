@@ -15,7 +15,7 @@ const blogPosts = computed(() => {
 
 let retrievedPosts = ref<BlogPost[]>([]);
 
-async function fetchBlogPosts() {
+async function fetchBlogPosts(): Promise<void> {
   if (blogPosts.value.length === 0) {
     const q = query(collection(db, "blog"));
     const querySnapShot = await getDocs(q);
@@ -35,7 +35,7 @@ const language = computed(() => {
 
 fetchBlogPosts();
 
-function goToHome() {
+function goToHome(): void {
   router.push("/");
 }
 </script>
@@ -102,11 +102,11 @@ header {
   }
 }
 .blog-card-tartan {
+  height: 30px;
+  left: 0;
+  opacity: 0.5;
   position: absolute;
   top: 0;
-  left: 0;
-  height: 30px;
   width: 100%;
-  opacity: 0.5;
 }
 </style>

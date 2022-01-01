@@ -1,16 +1,17 @@
 <script setup lang="ts">
 import { computed } from "vue";
 import { store } from "../../store";
+import { UnknownObj } from "../../types";
 
-function close() {
+function close(): void {
   store.commit("TOGGLE_DRAWER", { name: "Stack", isOpen: false });
 }
 
-const textContent = computed(() => {
+const textContent = computed<UnknownObj>(() => {
   return store.state.textContent.drawerStack;
 });
 
-const language = computed(() => {
+const language = computed<string>(() => {
   return store.state.language.abreviation;
 });
 </script>
@@ -262,8 +263,8 @@ const language = computed(() => {
 <style lang="scss" scoped>
 .tech-stack-card,
 .tech-stack-card-transparent {
-  width: 100% !important;
   margin: 20px;
+  width: 100% !important;
 }
 
 .tech-stack-card {
@@ -272,15 +273,15 @@ const language = computed(() => {
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
   grid-gap: 10px;
+  grid-template-columns: repeat(4, 1fr);
 }
 
 @media screen and (max-width: 600px) {
   .tech-stack-card {
     img {
-      width: 40px;
       height: 40px;
+      width: 40px;
     }
   }
 }

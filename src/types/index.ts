@@ -20,6 +20,7 @@ export interface TechStack {
 }
 
 export interface Contact {
+  [key: string]: string | number | any;
   date?: string | Date | undefined;
   email: string | undefined;
   id?: string | undefined;
@@ -54,4 +55,27 @@ export interface BlogPost {
   icon: string;
   id: string;
   title: LanguageOption;
+}
+
+export interface UserCredentials {
+  email: string;
+  pwd: string;
+}
+
+export interface Plot {
+  x: number;
+  y: number;
+}
+
+export interface Line {
+  x1: number;
+  y1: number;
+  x2: number;
+  y2: number;
+}
+
+export interface ChartDataSet {
+  level0: number[];
+  level1: number[];
+  level2: number[];
 }

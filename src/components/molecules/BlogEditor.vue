@@ -18,7 +18,7 @@ const postContent = ref<BlogPost>({
   id: "",
 });
 
-function savePost() {
+function savePost(): void {
   if (postContent.value.title.fr) {
     store.dispatch("POST_BLOG", { ...postContent.value }).then(() => {
       postContent.value = {
@@ -92,7 +92,7 @@ function savePost() {
 
 <style lang="scss" scoped>
 .blog-posting-card {
-  width: 100%;
   max-width: 600px;
+  width: 100%;
 }
 </style>

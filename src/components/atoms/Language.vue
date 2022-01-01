@@ -1,14 +1,13 @@
 <script setup lang="ts">
 import { computed } from "vue";
 import { store } from "../../store/index";
-import { UnknownObj } from "../../types/index";
 
 const props = defineProps<{
   color: string;
   shadow?: boolean;
 }>();
 
-const isShadow = computed(() => {
+const isShadow = computed<string>(() => {
   if (props.shadow) {
     return "0px 10px 10px rgb(50,30,30)";
   } else {

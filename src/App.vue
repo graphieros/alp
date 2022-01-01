@@ -38,20 +38,19 @@ nextTick(() => {
 
 <style lang="scss">
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
+  -webkit-font-smoothing: antialiased;
   color: #2c3e50;
-  // margin-top: 60px;
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  text-align: center;
 }
 .tartan-bg {
+  height: 100%;
+  opacity: 0.5;
   position: fixed;
   right: 0;
   top: 0;
-  height: 100%;
   width: 100px;
-  opacity: 0.5;
   z-index: -1;
 }
 @media screen and (max-width: 600px) {

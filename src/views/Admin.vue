@@ -5,7 +5,7 @@ import { ref, computed, watch } from "vue";
 import firebaseApp from "../firebase";
 import router from "../router";
 import { store } from "../store";
-import { UnknownObj } from "../types";
+import { Contact, UnknownObj, UserCredentials } from "../types";
 import BlogEditor from "../components/molecules/BlogEditor.vue";
 
 const db = getFirestore(firebaseApp);
@@ -16,16 +16,16 @@ const isLoggedIn = computed(() => {
 
 let isFormValid = ref(false);
 let isAdmin = ref(false);
-const credentials = ref({
+const credentials = ref<UserCredentials>({
   email: "",
   pwd: "",
 });
 
-function goToHome() {
+function goToHome(): void {
   router.push("/");
 }
 
-function submitLogin() {
+function submitLogin(): void {
   if (!isAdmin.value) {
     if (credentials.value.email && credentials.value.pwd) {
       store.dispatch("LOG_IN", { ...credentials.value }).then(() => {
@@ -35,7 +35,7 @@ function submitLogin() {
   }
 }
 
-let contactRequests = ref([]) as UnknownObj;
+let contactRequests = ref([]) as unknown as Contact;
 
 async function fetchContactRequests() {
   if (isLoggedIn.value) {
@@ -47,10 +47,10 @@ async function fetchContactRequests() {
   }
 }
 
-async function dump(contact: UnknownObj) {
+async function dump(contact: Contact | UnknownObj): Promise<void> {
   await deleteDoc(doc(db, "contacts", contact.id));
 
-  contactRequests.value = contactRequests.value.filter((el: UnknownObj) => {
+  contactRequests.value = contactRequests.value.filter((el: Contact) => {
     return el.id !== contact.id;
   });
 }
@@ -145,22 +145,22 @@ watch(
 }
 
 .contacts {
-  padding: 50px;
   gap: 10px;
+  padding: 50px;
 }
 
 .contact-card {
-  width: 100%;
-  max-width: 600px;
   height: 100%;
+  max-width: 600px;
+  width: 100%;
 }
 
 .contact-card-top {
+  height: 30px;
+  left: 0;
+  opacity: 0.5;
   position: absolute;
   top: 0;
-  left: 0;
-  height: 30px;
   width: 100%;
-  opacity: 0.5;
 }
 </style>

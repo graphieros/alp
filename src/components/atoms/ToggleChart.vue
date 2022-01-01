@@ -7,7 +7,7 @@ const props = defineProps<{
   shadow?: boolean;
 }>();
 
-const isShadow = computed(() => {
+const isShadow = computed<string>(() => {
   if (props.shadow) {
     return "0px 10px 10px rgb(50,30,30)";
   } else {
