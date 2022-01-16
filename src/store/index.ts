@@ -141,6 +141,20 @@ export const store = createStore<State>({
           en: "Projects",
         },
         projects: {
+          basiCalc: {
+            intro: {
+              fr: "Une calculatrice simple réalisée avec React",
+              en: "A simple calculator built with React",
+            },
+            stack: {
+              fr: "Codée avec React et TypeScript",
+              en: "Written in React and TypeScript",
+            },
+            cta: {
+              fr: "Accéder à l'application",
+              en: "Check out the app",
+            },
+          },
           yohann: {
             intro: {
               fr: "Site officiel du comédien et metteur en scène Yohann Lavéant.",

@@ -149,6 +149,81 @@ const language = computed<string>(() => {
       <w-card class="projects-card pa5 mb5">
         <w-flex wrap>
           <w-flex class="xs12 mb5">
+            <h1 class="title-font bold font-shade">basiCalc</h1>
+          </w-flex>
+          <w-flex class="xs12 md8 align-center justify-center">
+            <w-flex wrap>
+              <w-flex class="xs12">
+                <h4 align="left" class="title-font pr5">
+                  {{ textContent.projects.basiCalc.intro[language] }}
+                </h4>
+              </w-flex>
+              <w-flex class="xs12 mt5">
+                <h4 align="left" class="title-font pr5">
+                  {{ textContent.projects.basiCalc.stack[language] }}
+                </h4>
+              </w-flex>
+            </w-flex>
+          </w-flex>
+
+          <w-flex wrap class="py5">
+            <w-flex class="xs12 mb5">
+              <img
+                class="fw box-shadow"
+                src="../../assets/screenshots/calc_home1.png"
+              /><br />
+            </w-flex>
+          </w-flex>
+
+          <w-flex class="xs12">
+            <w-tooltip bg-color="blue-dark2" color="white">
+              <template #activator="{ on }">
+                <img
+                  v-on="on"
+                  class="mx2 drop-shadow tech-image"
+                  src="../../assets/logos/ts.png"
+                  alt="TypeScript"
+                />
+              </template>
+              <h4 class="title-font">TypeScript</h4>
+            </w-tooltip>
+
+            <w-tooltip bg-color="blue-light3" color="black">
+              <template #activator="{ on }">
+                <img
+                  v-on="on"
+                  class="mx2 drop-shadow tech-image"
+                  src="../../assets/logos/react.png"
+                  alt="ReactJs"
+                />
+              </template>
+              <h4 class="title-font">ReactJs</h4>
+            </w-tooltip>
+          </w-flex>
+
+          <w-flex class="align-end justify-end">
+            <a href="https://basicalc.graphieros.com" target="_blank">
+              <Button
+                class="title-font mt5"
+                xl
+                round
+                shadow
+                outline
+                color="white"
+                ico="mdi mdi-eye-plus"
+                :content="textContent.projects.basiCalc.cta[language]"
+                :action="() => null"
+              />
+            </a>
+          </w-flex>
+        </w-flex>
+      </w-card>
+    </w-flex>
+
+    <w-flex class="mt5 white">
+      <w-card class="projects-card pa5 mb5">
+        <w-flex wrap>
+          <w-flex class="xs12 mb5">
             <h1 class="title-font bold font-shade">Yohann Lavéant</h1>
           </w-flex>
           <w-flex class="xs12 md8 align-center justify-center">
