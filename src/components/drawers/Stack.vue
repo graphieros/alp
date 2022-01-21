@@ -185,6 +185,18 @@ const language = computed<string>(() => {
               </template>
               <h4 class="title-font">Svelte 3 + Sveltekit</h4>
             </w-tooltip>
+
+            <w-tooltip bg-color="blue-light3" color="black">
+              <template #activator="{ on }">
+                <img
+                  v-on="on"
+                  class="mx2 drop-shadow"
+                  src="../../assets/logos/react.png"
+                  alt="ReactJs"
+                />
+              </template>
+              <h4 class="title-font">React</h4>
+            </w-tooltip>
           </div>
         </w-card>
       </w-flex>
@@ -269,6 +281,10 @@ const language = computed<string>(() => {
 
 .tech-stack-card {
   background: rgba(255, 255, 255, 0.123);
+  img {
+    height: 60px;
+    width: 60px;
+  }
 }
 
 .grid {
