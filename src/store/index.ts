@@ -141,6 +141,20 @@ export const store = createStore<State>({
           en: "Projects",
         },
         projects: {
+          avatarGrid: {
+            intro: {
+              fr: "Un générateur d'avatar en mode pixel art",
+              en: "A pixel art avatar generator",
+            },
+            stack: {
+              fr: "Codée avec Vue 3 et TypeScript",
+              en: "Written in Vue and TypeScript",
+            },
+            cta: {
+              fr: "Accéder à l'application",
+              en: "Check out the app",
+            },
+          },
           basiCalc: {
             intro: {
               fr: "Une calculatrice simple réalisée avec React",
