@@ -67,13 +67,13 @@ const language = computed<string>(() => {
             <w-flex class="xs12 mb5">
               <img
                 class="fw box-shadow"
-                src="../../assets/screenshots/agilepkr_table.png"
+                src="../../assets/screenshots/agilepkr_table.jpg"
               /><br />
             </w-flex>
             <w-flex class="xs12">
               <img
                 class="fw box-shadow"
-                src="../../assets/screenshots/agilepkr_stats_2.png"
+                src="../../assets/screenshots/agilepkr_stats_2.jpg"
               />
             </w-flex>
           </w-flex>
@@ -170,7 +170,7 @@ const language = computed<string>(() => {
             <w-flex class="xs12 mb5">
               <img
                 class="fw box-shadow"
-                src="../../assets/screenshots/calc_home1.png"
+                src="../../assets/screenshots/calc_home1.jpg"
               /><br />
             </w-flex>
           </w-flex>
@@ -245,13 +245,13 @@ const language = computed<string>(() => {
             <w-flex class="xs12 mb5">
               <img
                 class="fw box-shadow"
-                src="../../assets/screenshots/avatar_home1.png"
+                src="../../assets/screenshots/avatar_home1.jpg"
               /><br />
             </w-flex>
             <w-flex class="xs12">
               <img
                 class="fw box-shadow"
-                src="../../assets/screenshots/avatar_app.png"
+                src="../../assets/screenshots/avatar_app.jpg"
               />
             </w-flex>
           </w-flex>
@@ -337,7 +337,7 @@ const language = computed<string>(() => {
             <w-flex class="xs12 mb5">
               <img
                 class="fw box-shadow"
-                src="../../assets/screenshots/yohann_home1.png"
+                src="../../assets/screenshots/yohann_home1.jpg"
               /><br />
             </w-flex>
           </w-flex>
@@ -436,19 +436,19 @@ const language = computed<string>(() => {
           <w-flex class="xs12 mb5">
             <img
               class="fw box-shadow"
-              src="../../assets/screenshots/graphieros_react_home1.png"
+              src="../../assets/screenshots/graphieros_react_home1.jpg"
             /><br />
           </w-flex>
           <w-flex class="xs12 mb5">
             <img
               class="fw box-shadow"
-              src="../../assets/screenshots/graphieros_react_words.png"
+              src="../../assets/screenshots/graphieros_react_words.jpg"
             />
           </w-flex>
           <w-flex class="xs12">
             <img
               class="fw box-shadow"
-              src="../../assets/screenshots/graphieros_react_space.png"
+              src="../../assets/screenshots/graphieros_react_space.jpg"
             />
           </w-flex>
         </w-flex>
@@ -523,19 +523,19 @@ const language = computed<string>(() => {
           <w-flex class="xs12 mb5">
             <img
               class="fw box-shadow"
-              src="../../assets/screenshots/graphieros_vue_home1.png"
+              src="../../assets/screenshots/graphieros_vue_home1.jpg"
             /><br />
           </w-flex>
           <w-flex class="xs12 mb5">
             <img
               class="fw box-shadow"
-              src="../../assets/screenshots/graphieros_vue_editor.png"
+              src="../../assets/screenshots/graphieros_vue_editor.jpg"
             />
           </w-flex>
           <w-flex class="xs12">
             <img
               class="fw box-shadow"
-              src="../../assets/screenshots/graphieros_vue_expl.png"
+              src="../../assets/screenshots/graphieros_vue_expl.jpg"
             />
           </w-flex>
         </w-flex>
@@ -611,7 +611,7 @@ const language = computed<string>(() => {
           <w-flex class="xs12">
             <img
               class="fw box-shadow"
-              src="../../assets/screenshots/toiletMogul_home1.png"
+              src="../../assets/screenshots/toiletMogul_home1.jpg"
             /><br />
           </w-flex>
         </w-flex>
@@ -699,7 +699,7 @@ const language = computed<string>(() => {
             <w-flex class="xs12 mb5">
               <img
                 class="fw box-shadow"
-                src="../../assets/screenshots/this_vue_home1.png"
+                src="../../assets/screenshots/this_vue_home1.jpg"
               /><br />
             </w-flex>
           </w-flex>
