@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed } from "vue";
+import { computed, ref } from "vue";
 import { store } from "../../store";
 import { UnknownObj } from "../../types";
 import Button from "../atoms/Button.vue";
@@ -15,6 +15,12 @@ const textContent = computed<UnknownObj>(() => {
 const language = computed<string>(() => {
   return store.state.language.abreviation;
 });
+
+let isLoaded = ref(false);
+
+function onImgLoad(): void {
+  isLoaded.value = true;
+}
 </script>
 
 <template>
@@ -66,6 +72,13 @@ const language = computed<string>(() => {
           <w-flex wrap class="py5">
             <w-flex class="xs12 mb5">
               <img
+                v-if="!isLoaded"
+                class="fw box-shadow"
+                src="../../assets/screenshots/small_agilepkr_table.jpg"
+                @load="onImgLoad"
+              />
+              <img
+                v-if="isLoaded"
                 class="fw box-shadow"
                 src="../../assets/screenshots/agilepkr_table.jpg"
               /><br />
