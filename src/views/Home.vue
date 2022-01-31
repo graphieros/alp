@@ -149,7 +149,24 @@ let isContactOpen = ref(false);
   height: 100px !important;
   position: relative;
   width: 100px;
+  animation: fade 0.3s ease-in forwards;
+  animation-delay: 1.1s;
+  opacity: 0;
 
+  @keyframes fade {
+    0% {
+      opacity: 0;
+      transform: scale(0, 0);
+    }
+    90% {
+      opacity: 1;
+      transform: scale(1.2, 1.2);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1, 1);
+    }
+  }
   .contact-button-bg {
     border-radius: 50%;
     height: 100%;
