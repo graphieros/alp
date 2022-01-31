@@ -63,6 +63,17 @@ const isTablet = computed(() => {
 });
 
 let isContactOpen = ref(false);
+
+let animatedName = "Alec Lloyd Probert";
+
+function animateName() {
+  const arr = animatedName.split("");
+  return arr;
+}
+
+function setNameAnimation(position: number): string {
+  return `animation-delay: ${position * 75}ms`;
+}
 </script>
 
 <template>
@@ -74,16 +85,27 @@ let isContactOpen = ref(false);
       >
         <w-flex class="align-center justify-center">
           <!-- <h4 class="mt-10">Alec</h4> -->
-          <h1>Alec Lloyd Probert</h1>
+          <h1 v-for="(letter, i) in animateName()">
+            <span
+              class="name-letters"
+              :style="
+                i === 3 || i === 9
+                  ? `margin-right:8px; ${setNameAnimation(i)}`
+                  : setNameAnimation(i)
+              "
+              :key="`letter_${i}`"
+              >{{ letter }}</span
+            >
+          </h1>
           <!-- <h4 class="mt10">Probert</h4> -->
         </w-flex>
       </w-flex>
       <w-flex class="xs12 justify-center name-wrapper title-font font-shade">
-        <h3 class="blue-light3">
+        <h3 class="blue-light3 job-title">
           {{ textContent.nameSubtitle[language.abreviation] }}
         </h3>
       </w-flex>
-      <w-flex class="xs12 justify-center align-center my4">
+      <w-flex class="xs12 justify-center align-center my4 toggle-lang">
         <Language color="brown-light3" shadow />
       </w-flex>
       <w-flex class="xs12 justify-center align-center my4">
@@ -150,13 +172,13 @@ let isContactOpen = ref(false);
   position: relative;
   width: 100px;
   animation: fade 0.3s ease-in forwards;
-  animation-delay: 1.1s;
+  animation-delay: 2.7s;
   opacity: 0;
 
   @keyframes fade {
     0% {
       opacity: 0;
-      transform: scale(0, 0);
+      transform: scale(0, 0) rotate(1800deg);
     }
     90% {
       opacity: 1;
@@ -164,7 +186,7 @@ let isContactOpen = ref(false);
     }
     100% {
       opacity: 1;
-      transform: scale(1, 1);
+      transform: scale(1, 1) rotate(0deg);
     }
   }
   .contact-button-bg {
@@ -176,6 +198,48 @@ let isContactOpen = ref(false);
     top: 0;
     width: 100%;
     z-index: -1;
+  }
+}
+
+.job-title,
+.toggle-lang {
+  opacity: 0;
+  animation: fade-title 0.3s ease-in forwards;
+}
+
+.job-title {
+  animation-delay: 1s;
+}
+
+.toggle-lang {
+  animation-delay: 1.2s;
+}
+
+@keyframes fade-title {
+  0% {
+    opacity: 0;
+    transform: scale(2, 0) translateY(-100px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1, 1) translateY(0);
+  }
+}
+
+.name-letters {
+  animation: appear 0.15s ease-in forwards;
+  opacity: 0;
+  display: block;
+}
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+    transform: scale(0, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1, 1);
   }
 }
 </style>

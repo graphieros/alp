@@ -89,18 +89,18 @@ function goToBlog(): void {
 }
 
 #link-1 {
-  animation-delay: 0s;
+  animation-delay: 1.5s;
 }
 
 #link-2 {
-  animation-delay: 0.3s;
+  animation-delay: 1.8s;
 }
 
 #link-3 {
-  animation-delay: 0.6s;
+  animation-delay: 2.1s;
 }
 #link-4 {
-  animation-delay: 0.9s;
+  animation-delay: 2.4s;
 }
 
 @keyframes fade {

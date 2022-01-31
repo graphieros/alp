@@ -26,7 +26,10 @@ const isChart = computed({
 </script>
 
 <template>
-  <w-checkbox v-model="isChart" color="blue-light2" class="font-shade"
+  <w-checkbox
+    v-model="isChart"
+    color="blue-light2"
+    class="font-shade play-toggle"
     ><h4 class="title-font">
       {{ isChart ? "playing" : "paused" }}
     </h4></w-checkbox
@@ -40,5 +43,26 @@ const isChart = computed({
 }
 .selected {
   text-decoration: underline;
+}
+
+.play-toggle {
+  opacity: 0;
+  animation: fade 0.3s ease-in forwards;
+  animation-delay: 3s;
+}
+
+@keyframes fade {
+  0% {
+    opacity: 0;
+    transform: scale(2, 0.3) translateX(-200px);
+  }
+  80% {
+    opacity: 1;
+    transform: translateX(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1, 1) translateX(0px);
+  }
 }
 </style>
