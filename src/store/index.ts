@@ -19,31 +19,31 @@ export const key: InjectionKey<Store<State>> = Symbol();
 
 export interface State {
   [key: string]: string | number | any;
+  blogPosts: BlogPost[];
+  contactRequests: Contact[];
   isChart: boolean;
-  language: Language;
   isFrench: boolean;
-  textContent: TranslationContent;
-  showExperience: boolean;
-  showStack: boolean;
-  showProjects: boolean;
+  isLoggedIn: boolean;
   isMobile: boolean;
   isTablet: boolean;
-  isLoggedIn: boolean;
-  contactRequests: Contact[];
-  blogPosts: BlogPost[];
+  language: Language;
+  showExperience: boolean;
+  showProjects: boolean;
+  showStack: boolean;
+  textContent: TranslationContent;
 }
 
 export const store = createStore<State>({
   state: {
     blogPosts: [],
     contactRequests: [],
+    isChart: true,
     isLoggedIn: false,
     isMobile: false,
     isTablet: false,
     showExperience: false,
-    showStack: false,
     showProjects: false,
-    isChart: true,
+    showStack: false,
     language: {
       abreviation: "fr",
       options: {
